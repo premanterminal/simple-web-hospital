@@ -24,7 +24,7 @@
         <div class="row mt-4">
             <div class="col-md-6">
                 <h3>Data Pasien</h3>
-                 <a href="<?= base_url('md_pelanggan/tambah/'); ?>" class="btn btn-primary mb-2">Tambah Data</a>
+                 <a href="<?= base_url('customers/tambah/'); ?>" class="btn btn-primary mb-2">Tambah Data</a>
                 <div class="table-responsive table-striped">
                     <table class="table">
                         <thead>
@@ -38,7 +38,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($md_pelanggan as $m) : ?>
+                            <?php foreach ($customers as $m) : ?>
                                 <tr>
 
                  
