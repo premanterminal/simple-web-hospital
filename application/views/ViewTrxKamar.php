@@ -41,21 +41,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($md_kelas as $m) : ?>
+                            <?php foreach ($row as $m) : ?>
                                 <tr>
-                                id_pemesanan	id_pelanggan	id_kelas_kamar	
-                            tanggal_checkin	tanggal_checkout	total_invoice	
-                            
-                 
-                                    <!-- <th scope="row"></th> -->
-                                    <td><?= $m['id_pemesanan']; ?></td>
-                                    <td><?= $m['id_pelanggan']; ?></td>
-                                    <td><?= $m['id_kelas_kamar']; ?></td>
-                                    <td><?= $m['tanggal_checkin']; ?></td>
-                                    <td><?= $m['tanggal_checkout']; ?></td>
-                                    <td><?= $m['total_invoice']; ?></td>
-                                    
+                                    <td scope="row"><?= $no++; ?></td>
+                                    <td><?= $m->id_pemesanan;?></td>
+                                    <td><?= $m->id_pelanggan; ?></td>
+                                    <td><?= $m->id_kelas_kamar; ?></td>
+                                    <td><?= $m->tanggal_checkin; ?></td>
+                                    <td><?= $m->tanggal_checkout; ?></td>
+                                    <td><?= $m->total_invoice; ?></td>
                                 </tr>
+                                
                             <?php endforeach; ?>
                         </tbody>
                     </table>

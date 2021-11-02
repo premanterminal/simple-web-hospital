@@ -15,7 +15,7 @@ class Trxkamar extends CI_Controller
         // $this->load->view('dashboard');
 
         $data['row'] = $this->Trxkamarmodel->get();
-        $this->templates->load('template', 'Trxkamar/Trxkamar_data', $data);
+        $this->load->view('ViewTrxKamar', $data);
     }
 
     public function add()
@@ -32,7 +32,7 @@ class Trxkamar extends CI_Controller
             'row' => $Trxkamar
         ];
 
-        $this->templates->load('template', 'Trxkamar/Trxkamar_form', $data);
+        $this->load->view('ViewTrxKamar', $data);
     }
 
     public function edit($id)

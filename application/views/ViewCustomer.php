@@ -40,13 +40,11 @@
                         <tbody>
                             <?php foreach ($row as $m) : ?>
                                 <tr>
-
-                 
-                                    <th scope="row"><?= $no++; ?></th>
-                                    <td><?= $m['nama_pelanggan']; ?></td>
-                                    <td><?= $m['tanggal_lahir']; ?></td>
-                                    <td><?= $m['no_handphone']; ?></td>
-                                    <td><?= $m['email']; ?></td>
+                                    <td scope="row"><?= $no++; ?></td>
+                                    <td><?= $m->nama_pelanggan;?></td>
+                                    <td><?= $m->tanggal_lahir; ?></td>
+                                    <td><?= $m->no_handphone; ?></td>
+                                    <td><?= $m->email; ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

@@ -15,7 +15,7 @@ class Kelas extends CI_Controller
         // $this->load->view('dashboard');
 
         $data['row'] = $this->Kelasmodel->get();
-        $this->templates->load('template', 'Kelas/Kelas_data', $data);
+        $this->load->view('ViewKelas', $data);
     }
 
     public function add()
@@ -32,7 +32,7 @@ class Kelas extends CI_Controller
             'row' => $Kelas
         ];
 
-        $this->templates->load('template', 'Kelas/Kelas_form', $data);
+        $this->load->view('ViewKelas', $data);
     }
 
     public function edit($id)
@@ -46,7 +46,7 @@ class Kelas extends CI_Controller
                 'row' => $Kelas
             ];
 
-            $this->templates->load('template', 'Kelas/Kelas_form', $data);
+            $this->load->view('ViewKelas', $data);
         } else {
             echo "<script>alert('data tidak ditemukan')</script>";
             echo "<script>window.location='" . site_url('Kelas') . "'</script>";

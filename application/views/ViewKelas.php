@@ -24,7 +24,7 @@
         <div class="row mt-4">
             <div class="col-md-6">
                 <h3>Data Kamar</h3>
-                 <a href="<?= base_url('md_kelas_kamar/tambah/'); ?>" class="btn btn-primary mb-2">Tambah Data</a>
+                 <a href="<?= base_url('kelas/tambah/'); ?>" class="btn btn-primary mb-2">Tambah Data</a>
                 <div class="table-responsive table-striped">
                     <table class="table">
                         <thead>
@@ -38,15 +38,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($md_kelas as $m) : ?>
+                            <?php foreach ($row as $m) : ?>
                                 <tr>
-
-                 
-                                    <!-- <th scope="row"></th> -->
-                                    <td><?= $m['id_kelas_kamar']; ?></td>
-                                    <td><?= $m['nama_kelas_kamar']; ?></td>
-                                    <td><?= $m['harga_perhari']; ?></td>
-                                    
+                                    <td scope="row"><?= $no++; ?></td>
+                                    <td><?= $m->id_kelas_kamar;?></td>
+                                    <td><?= $m->nama_kelas_kamar; ?></td>
+                                    <td><?= $m->harga_perhari; ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

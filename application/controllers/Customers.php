@@ -31,7 +31,7 @@ class Customers extends CI_Controller
             'row' => $customers
         ];
 
-        $this->templates->load('template', 'customers/customers_form', $data);
+        $this->load->view('ViewCustomer', $data);
     }
 
     public function edit($id)
@@ -45,7 +45,7 @@ class Customers extends CI_Controller
                 'row' => $customers
             ];
 
-            $this->templates->load('template', 'customers/customers_form', $data);
+            $this->load->view('ViewCustomer', $data);
         } else {
             echo "<script>alert('data tidak ditemukan')</script>";
             echo "<script>window.location='" . site_url('customers') . "'</script>";
