@@ -7,15 +7,15 @@ class Trxkamar extends CI_Controller
     {
         parent::__construct();
         //check_not_login();
-        $this->load->model('TrxKamarModel');
+        $this->load->model('Trxkamarmodel');
     }
 
     public function index()
     {
         // $this->load->view('dashboard');
 
-        $data['row'] = $this->TrxKamarModel->get();
-        $this->templates->load('template', 'TrxKamar/TrxKamar_data', $data);
+        $data['row'] = $this->Trxkamarmodel->get();
+        $this->templates->load('template', 'Trxkamar/Trxkamar_data', $data);
     }
 
     public function add()
@@ -29,27 +29,27 @@ class Trxkamar extends CI_Controller
         $TrxKamar->total_invoice = null;
         $data = [
             'page' => 'add',
-            'row' => $TrxKamar
+            'row' => $Trxkamar
         ];
 
-        $this->templates->load('template', 'TrxKamar/TrxKamar_form', $data);
+        $this->templates->load('template', 'Trxkamar/Trxkamar_form', $data);
     }
 
     public function edit($id)
     {
-        $query = $this->TrxKamarModel->get($id);
+        $query = $this->Trxkamarmodel->get($id);
         if ($query->num_rows() > 0) {
-            $TrxKamar = $query->row();
+            $Trxkamar = $query->row();
 
             $data = [
                 'page' => 'edit',
-                'row' => $TrxKamar
+                'row' => $Trxkamar
             ];
 
-            $this->templates->load('template', 'TrxKamar/TrxKamar_form', $data);
+            $this->templates->load('template', 'Trxkamar/Trxkamar_form', $data);
         } else {
             echo "<script>alert('data tidak ditemukan')</script>";
-            echo "<script>window.location='" . site_url('TrxKamar') . "'</script>";
+            echo "<script>window.location='" . site_url('Trxkamar') . "'</script>";
         }
     }
 
@@ -57,24 +57,24 @@ class Trxkamar extends CI_Controller
     {
         $post = $this->input->post(null, TRUE);
         if (isset($_POST['add'])) {
-            $this->TrxKamarModel->add($post);
+            $this->Trxkamarmodel->add($post);
         } elseif (isset($_POST['edit'])) {
-            $this->TrxKamarModel->edit($post);
+            $this->Trxkamarmodel->edit($post);
         }
 
         if ($this->db->affected_rows() > 0) {
             echo "<script>alert('data berhasil disimpan')</script>";
         }
-        echo "<script>window.location='" . site_url('TrxKamar') . "'</script>";
+        echo "<script>window.location='" . site_url('Trxkamar') . "'</script>";
     }
 
 
     public function del($id)
     {
-        $this->TrxKamarModel->del($id);
+        $this->Trxkamarmodel->del($id);
         if ($this->db->affected_rows() > 0) {
             echo "<script>alert('data berhasil dihapus')</script>";
         }
-        echo "<script>window.location='" . site_url('TrxKamar') . "'</script>";
+        echo "<script>window.location='" . site_url('Trxkamar') . "'</script>";
     }
 }

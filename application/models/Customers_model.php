@@ -9,7 +9,7 @@ class Customers_model extends CI_Model
         if ($id != NULL) {
             $this->db->where('id_pelanggan', $id);
         }
-        $query = $this->db->get();
+        $query = $this->db->get()->result();
         return $query;
     }
 

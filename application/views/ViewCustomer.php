@@ -38,7 +38,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($customers as $m) : ?>
+                            <?php foreach ($row as $m) : ?>
                                 <tr>
 
                  

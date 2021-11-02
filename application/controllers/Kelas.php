@@ -7,23 +7,26 @@ class Kelas extends CI_Controller
     {
         parent::__construct();
         //check_not_login();
-        $this->load->model('KelasModel');
+        $this->load->model('Kelasmodel');
     }
 
     public function index()
     {
         // $this->load->view('dashboard');
 
-        $data['row'] = $this->KelasModel->get();
+        $data['row'] = $this->Kelasmodel->get();
         $this->templates->load('template', 'Kelas/Kelas_data', $data);
     }
 
     public function add()
     {
         $Kelas = new stdClass();
+        $Kelas->id_pemesanan = null;
+        $Kelas->id_pelanggan = null;
         $Kelas->id_kelas_kamar = null;
-        $Kelas->nama_kelas_kamar = null;
-        $Kelas->harga_perhari = null;
+        $Kelas->tanggal_checkin = null;
+        $Kelas->tanggal_checkout = null;
+        $Kelas->total_invoice = null;
         $data = [
             'page' => 'add',
             'row' => $Kelas
@@ -34,7 +37,7 @@ class Kelas extends CI_Controller
 
     public function edit($id)
     {
-        $query = $this->KelasModel->get($id);
+        $query = $this->Kelasmodel->get($id);
         if ($query->num_rows() > 0) {
             $Kelas = $query->row();
 
@@ -54,9 +57,9 @@ class Kelas extends CI_Controller
     {
         $post = $this->input->post(null, TRUE);
         if (isset($_POST['add'])) {
-            $this->KelasModel->add($post);
+            $this->Kelasmodel->add($post);
         } elseif (isset($_POST['edit'])) {
-            $this->KelasModel->edit($post);
+            $this->Kelasmodel->edit($post);
         }
 
         if ($this->db->affected_rows() > 0) {
@@ -68,7 +71,7 @@ class Kelas extends CI_Controller
 
     public function del($id)
     {
-        $this->KelasModel->del($id);
+        $this->Kelasmodel->del($id);
         if ($this->db->affected_rows() > 0) {
             echo "<script>alert('data berhasil dihapus')</script>";
         }

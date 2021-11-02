@@ -7,15 +7,15 @@ class Customers extends CI_Controller
     {
         parent::__construct();
         //check_not_login();
-        $this->load->model('Customer_model');
+        $this->load->model('Customers_model');
     }
 
     public function index()
     {
         // $this->load->view('dashboard');
 
-        $data['row'] = $this->Customer_model->get();
-        $this->templates->load('template', 'customers/customers_data', $data);
+        $data['row'] = $this->Customers_model->get();
+        $this->load->view('ViewCustomer', $data);
     }
 
     public function add()
@@ -36,7 +36,7 @@ class Customers extends CI_Controller
 
     public function edit($id)
     {
-        $query = $this->Customer_model->get($id);
+        $query = $this->Customers_model->get($id);
         if ($query->num_rows() > 0) {
             $customers = $query->row();
 
@@ -56,9 +56,9 @@ class Customers extends CI_Controller
     {
         $post = $this->input->post(null, TRUE);
         if (isset($_POST['add'])) {
-            $this->Customer_model->add($post);
+            $this->Customers_model->add($post);
         } elseif (isset($_POST['edit'])) {
-            $this->Customer_model->edit($post);
+            $this->Customers_model->edit($post);
         }
 
         if ($this->db->affected_rows() > 0) {
@@ -70,7 +70,7 @@ class Customers extends CI_Controller
 
     public function del($id)
     {
-        $this->Customer_model->del($id);
+        $this->Customers_model->del($id);
         if ($this->db->affected_rows() > 0) {
             echo "<script>alert('data berhasil dihapus')</script>";
         }

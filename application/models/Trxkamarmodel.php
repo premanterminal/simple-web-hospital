@@ -5,11 +5,11 @@ class Trxkamarmodel extends CI_Model
 {
     public function get($id = NULL)
     {
-        $this->db->from('md_trx_pemesanan_hotel');
+        $this->db->from('trx_pemesanan_hotel');
         if ($id != NULL) {
             $this->db->where('id_pemesanan', $id);
         }
-        $query = $this->db->get();
+        $query = $this->db->get()->result();
         return $query;
     }
 
@@ -17,7 +17,7 @@ class Trxkamarmodel extends CI_Model
     {
         $this->db
             ->where('id_pemesanan', $id)
-            ->delete('md_trx_pemesanan_hotel');
+            ->delete('trx_pemesanan_hotel');
     }
 
     public function add($post)
@@ -45,7 +45,7 @@ class Trxkamarmodel extends CI_Model
         ];
 
         $this->db
-            ->where('id_kelas_kamar', $post['id'])
-            ->update('md_kelas_kamar', $params);
+            ->where('id_pemesanan', $post['id'])
+            ->update('trx_pemesanan_hotel', $params);
     }
 }

@@ -9,7 +9,7 @@ class Kelasmodel extends CI_Model
         if ($id != NULL) {
             $this->db->where('id_kelas_kamar', $id);
         }
-        $query = $this->db->get();
+        $query = $this->db->get()->result();
         return $query;
     }
 
