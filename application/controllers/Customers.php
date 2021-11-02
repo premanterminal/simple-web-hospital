@@ -7,25 +7,25 @@ class Customers extends CI_Controller
     {
         parent::__construct();
         //check_not_login();
-        $this->load->model('CustomerModel');
+        $this->load->model('Customer_model');
     }
 
     public function index()
     {
         // $this->load->view('dashboard');
 
-        $data['row'] = $this->CustomerModel->get();
+        $data['row'] = $this->Customer_model->get();
         $this->templates->load('template', 'customers/customers_data', $data);
     }
 
     public function add()
     {
         $customers = new stdClass();
-        $customers->customer_id = null;
-        $customers->name = null;
-        $customers->gender = null;
-        $customers->phone = null;
-        $customers->address = null;
+        $customers->id_pelanggan = null;
+        $customers->nama_pelanggan = null;
+        $customers->tanggal_lahir = null;
+        $customers->no_handphone = null;
+        $customers->email = null;
         $data = [
             'page' => 'add',
             'row' => $customers
@@ -36,7 +36,7 @@ class Customers extends CI_Controller
 
     public function edit($id)
     {
-        $query = $this->CustomerModel->get($id);
+        $query = $this->Customer_model->get($id);
         if ($query->num_rows() > 0) {
             $customers = $query->row();
 
@@ -56,9 +56,9 @@ class Customers extends CI_Controller
     {
         $post = $this->input->post(null, TRUE);
         if (isset($_POST['add'])) {
-            $this->CustomerModel->add($post);
+            $this->Customer_model->add($post);
         } elseif (isset($_POST['edit'])) {
-            $this->CustomerModel->edit($post);
+            $this->Customer_model->edit($post);
         }
 
         if ($this->db->affected_rows() > 0) {
@@ -70,7 +70,7 @@ class Customers extends CI_Controller
 
     public function del($id)
     {
-        $this->CustomerModel->del($id);
+        $this->Customer_model->del($id);
         if ($this->db->affected_rows() > 0) {
             echo "<script>alert('data berhasil dihapus')</script>";
         }

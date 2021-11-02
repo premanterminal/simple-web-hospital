@@ -21,11 +21,9 @@ class Kelas extends CI_Controller
     public function add()
     {
         $Kelas = new stdClass();
-        $Kelas->customer_id = null;
-        $Kelas->name = null;
-        $Kelas->gender = null;
-        $Kelas->phone = null;
-        $Kelas->address = null;
+        $Kelas->id_kelas_kamar = null;
+        $Kelas->nama_kelas_kamar = null;
+        $Kelas->harga_perhari = null;
         $data = [
             'page' => 'add',
             'row' => $Kelas

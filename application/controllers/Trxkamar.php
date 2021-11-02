@@ -21,11 +21,12 @@ class Trxkamar extends CI_Controller
     public function add()
     {
         $TrxKamar = new stdClass();
-        $TrxKamar->customer_id = null;
-        $TrxKamar->name = null;
-        $TrxKamar->gender = null;
-        $TrxKamar->phone = null;
-        $TrxKamar->address = null;
+        $TrxKamar->id_pemesanan = null;
+        $TrxKamar->id_pelanggan = null;
+        $TrxKamar->id_kelas_kamar = null;
+        $TrxKamar->tanggal_checkin = null;
+        $TrxKamar->tanggal_checkout = null;
+        $TrxKamar->total_invoice = null;
         $data = [
             'page' => 'add',
             'row' => $TrxKamar
